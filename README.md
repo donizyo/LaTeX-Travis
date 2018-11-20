@@ -1,0 +1,1 @@
+Test if [TravisCI](https://travis-ci.org/) could compile [LaTeX](https://www.latex-project.org/) document, generate PDF, and publish it.
