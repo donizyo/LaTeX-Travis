@@ -1,0 +1,11 @@
+# Travis CI configuration
+# @see https://mirocupak.com/continuous-integration-for-latex/
+# @see https://tex.stackexchange.com/a/398831/174531
+language: generic
+sudo: required
+dist: trusty
+
+before_install:
+  - sudo apt -qq update && sudo apt install -y --no-install-recommends texlive-full
+script:
+  - pdflatex -interactive=nonstopmode -halt-on-error *.tex
