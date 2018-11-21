@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DEPLOY_BRANCH_NAME=deploy
+DEPLOY_BRANCH_NAME=deploy # CONSTANT VALUE !!!
 
 git checkout --orphan "$DEPLOY_BRANCH_NAME"
 git add *.pdf

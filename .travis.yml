@@ -4,6 +4,12 @@
 language: generic
 sudo: required
 dist: trusty
+cache:
+  apt: true
+
+branches:
+  except:
+    - deploy
 
 before_install:
   - sudo apt -qq update && sudo apt install -y --no-install-recommends texlive-full
