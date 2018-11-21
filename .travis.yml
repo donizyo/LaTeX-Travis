@@ -11,5 +11,5 @@ before_install:
 script:
   - pdflatex -interactive=nonstopmode -halt-on-error *.tex
 
-deploy:
+after_success:
   - chmod u+x deploy.sh && ./deploy.sh
