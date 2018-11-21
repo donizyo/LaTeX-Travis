@@ -3,6 +3,7 @@
 DEPLOY_BRANCH_NAME=deploy # CONSTANT VALUE !!!
 
 git checkout --orphan "$DEPLOY_BRANCH_NAME"
+git rm --cached --ignore-unmatch -rf -- .
 git add *.pdf
 git add *.log
 git commit --author="traviscibot <>" -m "Publish"
