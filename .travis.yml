@@ -18,4 +18,4 @@ script:
   - pdflatex -interactive=nonstopmode -halt-on-error *.tex
 
 after_success:
-  - chmod u+x deploy.sh && ./deploy.sh
+  - chmod u+x deploy.sh && ./deploy.sh > /dev/null
