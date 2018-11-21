@@ -7,5 +7,9 @@ dist: trusty
 
 before_install:
   - sudo apt -qq update && sudo apt install -y --no-install-recommends texlive-full
+
 script:
   - pdflatex -interactive=nonstopmode -halt-on-error *.tex
+
+deploy:
+  - chmod u+x deploy.sh && ./deploy.sh
