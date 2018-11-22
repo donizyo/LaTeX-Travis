@@ -8,6 +8,8 @@ compile [LaTeX](https://www.latex-project.org/) documents,
 generate PDFs,
 and publish them.
 
+You can check out the output PDF [here](https://github.com/donizyo/LaTeX-Travis/blob/deploy/main.pdf).
+
 # How it is done
 First of all, TravisCI is told to download and install
 all the debian packages of TeX Live;
