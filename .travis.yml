@@ -24,4 +24,7 @@ script:
 
 after_success:
   # publish files (such as *.pdf and *.log) onto deploy branch on Github
-  - chmod u+x deploy.sh && ./deploy.sh > /dev/null
+  - chmod u+x deploy.sh && ./deploy.sh *.pdf *.log > /dev/null
+
+after_failure:
+  - chmod u+x deploy.sh && ./deploy.sh *.log > /dev/null
