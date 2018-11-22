@@ -37,7 +37,9 @@ if [ -z $1 ]; then
 else
   # Routines
   git checkout --orphan "$DEPLOY_BRANCH_NAME"
-  git rm --cached --ignore-unmatch -rf -- .
+  {
+    git rm --cached --ignore-unmatch -rf -- .
+  } > /dev/null
   git add -- "$@"
   git commit --author="$DEPLOY_AUTHOR" -m "Publish"
   # Force push onto deploy branch
