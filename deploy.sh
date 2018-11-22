@@ -9,7 +9,7 @@ if [ -z "$GIT_REMOTE_NAME" ]; then
 fi
 GITHUB_REPO_URL=`git remote get-url "$GIT_REMOTE_NAME"` # Example: "https://github.com/donizyo/LaTeX-Travis/"
 GIT_REPO_PROTOCOL="${GITHUB_REPO_URL:0:5}"
-if [ "$GIT_REPO_PROTOCOL" -ne "https" ]; then
+if [ "$GIT_REPO_PROTOCOL" != "https" ]; then
   echo "Unsupported protocol detected: $GITHUB_REPO_URL !!!"
   exit 1
 fi
