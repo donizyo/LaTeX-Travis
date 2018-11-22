@@ -24,6 +24,11 @@ DEPLOY_AUTHOR_NAME="deploy-bot"
 DEPLOY_AUTHOR_EMAIL="deploy@travis-ci.org"
 DEPLOY_AUTHOR="$DEPLOY_AUTHOR_NAME <$DEPLOY_AUTHOR_EMAIL>"
 
+echo "Github URL          : $GITHUB_REPO_URL"
+echo "Github Username     : $GITHUB_USERNAME"
+echo "Deploy Branch Name  : $DEPLOY_BRANCH_NAME"
+echo "Deploy Author       : $DEPLOY_AUTHOR"
+
 if [ -z $1 ]; then
   # argument list is needed by 'git add' in the following `else` block
   echo "No argument is supplied!"
