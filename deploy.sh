@@ -1,11 +1,24 @@
 #!/bin/bash
 # vim: fileencoding=utf-8
 
-# CHANGE THE FOLLOWING VARIABLES
-GITHUB_REPO_URL="https://github.com/donizyo/LaTeX-Travis/"
-
 # !!! DO NOT CHANGE THE FOLLOWING VARIABLES !!!
-GITHUB_FULL_URL="https://donizyo:$GITHUB_TOKEN@${GITHUB_REPO_URL:8}"
+GIT_REMOTE_NAME=`git remote` # Example: origin
+if [ -z "$GIT_REMOTE_NAME" ]; then
+  echo "Git remote not found !!!"
+  exit 1
+fi
+GITHUB_REPO_URL=`git remote get-url "$GIT_REMOTE_NAME"` # Example: "https://github.com/donizyo/LaTeX-Travis/"
+if [ "${GITHUB_REPO_URL:0:5}" -ne "https" ]; then
+  echo "Unsupported protocol detected: $GITHUB_REPO_URL !!!"
+  exit 1
+fi
+GITHUB_USERNAME="${GITHUB_REPO_URL:19}"
+if [ -n "$GITHUB_USERNAME" ]; then
+  substr_index=`expr index $GITHUB_USERNAME '/'`
+  ((substr_index--))
+  GITHUB_USERNAME=${GITHUB_USERNAME:0:$substr_index}
+fi
+GITHUB_FULL_URL="https://$GITHUB_USERNAME:$GITHUB_TOKEN@${GITHUB_REPO_URL:8:-4}/"
 DEPLOY_BRANCH_NAME=deploy
 DEPLOY_AUTHOR_NAME="deploy-bot"
 DEPLOY_AUTHOR_EMAIL="deploy@travis-ci.org"
