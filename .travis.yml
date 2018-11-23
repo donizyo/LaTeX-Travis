@@ -11,7 +11,7 @@ branches:
     - deploy
 
 before_install:
-  - sudo apt -qq update && sudo apt install -y --no-install-recommends texlive-full
+  - sudo apt -qq update > /dev/null && sudo apt install -y --no-install-recommends texlive-full > /dev/null
 
 script:
   # `-interaction=nonstopmode` sets the interaction mode to nonstop,
