@@ -11,7 +11,8 @@ branches:
     - deploy
 
 before_install:
-  - sudo apt -qq update > /dev/null && sudo apt install -y --no-install-recommends texlive-full > /dev/null
+  - sudo apt -qq update > /dev/null
+  - sudo apt install -y --no-install-recommends texlive-full > /dev/null
 
 script:
   # `-interaction=nonstopmode` sets the interaction mode to nonstop,
@@ -20,7 +21,7 @@ script:
   # `-halt-on-error` ensures TeX exits with an error code
   #     when an error is encountered during processing,
   #     thus failing the build in Travis CI.
-  - pdflatex -interactive=nonstopmode -halt-on-error *.tex
+  - pdflatex -interactive=nonstopmode -halt-on-error *.tex > /dev/null
 
 after_success:
   # publish files (such as *.pdf and *.log) onto deploy branch on Github
