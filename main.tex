@@ -2,13 +2,21 @@
 \usepackage[a4paper,width=150mm,top=25mm,bottom=25mm,bindingoffset=6mm]{geometry}
 \usepackage{hyperref}
 \usepackage[utf8]{inputenc}
-\usepackage{graphicx}
+\usepackage{tikz}
+
+% Demo
+\usepackage{showframe}
 
 \title{The Most Beautiful Math Equations}
 \author{KaiserKatze}
 
 \begin{document}
-\includegraphics[scale=0.5]{FreeCulturalWorks_seal_x2.jpg}
+
+\begin{tikzpicture}[remember picture,overlay]
+    \node[xshift=65mm,yshift=-48mm,anchor=north west] at (current page.north west){%
+    \includegraphics[width=50mm]{FreeCulturalWorks_seal_x2.jpg}};
+\end{tikzpicture}
+
 \maketitle
 
 \section{Euler's identity}
