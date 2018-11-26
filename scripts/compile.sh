@@ -8,4 +8,4 @@
 #     when an error is encountered during processing,
 #     thus failing the build in Travis CI.
 alias pdflatex='pdflatex -interaction=nonstopmode -halt-on-error'
-find . -maxdepth 2 -type f -iname 'main.tex' -exec pdflatex {} +
+find . -type f -iname 'main.tex' -exec pdflatex {} +
