@@ -21,7 +21,7 @@ if [ -n "$GITHUB_USERNAME" ]; then
 fi
 GITHUB_FULL_URL="https://$GITHUB_USERNAME:$GITHUB_TOKEN@${GITHUB_REPO_URL:8:-4}/"
 DEPLOY_BRANCH_NAME=deploy
-DEPLOY_AUTHOR_NAME="traviscibot"
+DEPLOY_AUTHOR_NAME=" Travis CI User"
 DEPLOY_AUTHOR_EMAIL="deploy@travis-ci.org"
 DEPLOY_AUTHOR="$DEPLOY_AUTHOR_NAME <$DEPLOY_AUTHOR_EMAIL>"
 
@@ -40,7 +40,7 @@ else
   {
     git rm --cached --ignore-unmatch -rf -- .
   } > /dev/null
-  git add -- "$@"
+  find . -iname '*.pdf' -or -iname '*.log' -exec git add -- {} +
   git commit --author="$DEPLOY_AUTHOR" -m "Publish"
   # Force push onto deploy branch
   git push "$GITHUB_FULL_URL" +"$DEPLOY_BRANCH_NAME"
