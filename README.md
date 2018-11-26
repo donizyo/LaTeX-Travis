@@ -27,7 +27,7 @@ and force push the branch onto the Github.
 All the files in this project,
 are licensed under [MIT license](https://choosealicense.com/licenses/mit/),
 except generated PDFs, which are licensed
-under [![CC BY 4.0](https://licensebuttons.net/l/by/4.0/88x31.png)](https://creativecommons.org/licenses/by/4.0/).
+under [![CC BY 4.0](https://licensebuttons.net/l/by/4.0/80x15.png)](https://creativecommons.org/licenses/by/4.0/).
 
 # Reference
 1. [Continuous integration for LaTeX](https://mirocupak.com/continuous-integration-for-latex/)
