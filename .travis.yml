@@ -26,6 +26,7 @@ script:
 after_success:
   # publish files (such as *.pdf and *.log) onto deploy branch on Github
   - chmod u+x deploy.sh && ./deploy.sh *.pdf *.log
+  - echo "Check output PDF:\nhttps://github.com/donizyo/LaTeX-Travis/blob/deploy/main.pdf"
 
 after_failure:
   - chmod u+x deploy.sh && ./deploy.sh *.log
