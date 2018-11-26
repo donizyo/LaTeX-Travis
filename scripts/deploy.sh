@@ -30,18 +30,12 @@ echo "Github Username     : $GITHUB_USERNAME"
 echo "Deploy Branch Name  : $DEPLOY_BRANCH_NAME"
 echo "Deploy Author       : $DEPLOY_AUTHOR"
 
-if [ -z $1 ]; then
-  # argument list is needed by 'git add' in the following `else` block
-  echo "No argument is supplied!"
-  exit 1
-else
-  # Routines
-  git checkout --orphan "$DEPLOY_BRANCH_NAME"
-  {
-    git rm --cached --ignore-unmatch -rf -- .
-  } > /dev/null
-  find . -iname '*.pdf' -or -iname '*.log' -exec git add -- {} +
-  git commit --author="$DEPLOY_AUTHOR" -m "Publish"
-  # Force push onto deploy branch
-  git push "$GITHUB_FULL_URL" +"$DEPLOY_BRANCH_NAME"
-fi
+# Routines
+git checkout --orphan "$DEPLOY_BRANCH_NAME"
+{
+  git rm --cached --ignore-unmatch -rf -- .
+} > /dev/null
+find . -iname '*.pdf' -or -iname '*.log' -exec git add -- {} +
+git commit --author="$DEPLOY_AUTHOR" -m "Publish"
+# Force push onto deploy branch
+git push "$GITHUB_FULL_URL" +"$DEPLOY_BRANCH_NAME"
