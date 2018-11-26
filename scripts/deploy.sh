@@ -35,7 +35,7 @@ git checkout --orphan "$DEPLOY_BRANCH_NAME"
 {
   git rm --cached --ignore-unmatch -rf -- .
 } > /dev/null
-find . -iname '*.pdf' -or -iname '*.log' -exec git add -- {} +
+find . -iname '*.pdf' -or -iname '*.log' | xargs git add --
 git commit --author="$DEPLOY_AUTHOR" -m "Publish"
 # Force push onto deploy branch
 git push "$GITHUB_FULL_URL" +"$DEPLOY_BRANCH_NAME"
