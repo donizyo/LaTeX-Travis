@@ -1,7 +1,10 @@
 \documentclass[12pt,twoside]{article}
 \usepackage[a4paper,width=150mm,top=25mm,bottom=25mm,bindingoffset=6mm]{geometry}
 \usepackage{hyperref}
+\usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
+\usepackage[greek,english]{babel}
+\usepackage{CJKutf8}
 \usepackage{tikz}
 
 \title{The Most Beautiful Math Equations}
@@ -9,10 +12,8 @@
 
 \begin{document}
 
-\begin{tikzpicture}[remember picture,overlay]
-    \node[xshift=1mm,yshift=1mm,anchor=north west] at (current page.north west){%
-    \includegraphics[width=50mm]{FreeCulturalWorks_seal_x2.jpg}};
-\end{tikzpicture}
+Test:
+\foreignlanguage{greek}{φΔδ}\begin{CJK}{UTF8}{gbsn}汉\end{CJK}
 
 \maketitle
 
@@ -41,3 +42,8 @@ $$ (x_1+x_2+\cdots+x_t)^n=\sum\frac{n!}{n_1!n_2!\cdots n_t!}x_1^{n_1}x_2^{n_2}\c
 $$ P\left(A|B\right) = \frac{P\left(A\right)P\left(B|A\right)}{P\left(B\right)} $$
 
 \end{document}
+
+% \begin{tikzpicture}[remember picture,overlay]
+%    \node[xshift=1mm,yshift=1mm,anchor=north west] at (current page.north west){%
+%    \includegraphics[width=50mm]{FreeCulturalWorks_seal_x2.jpg}};
+% \end{tikzpicture}
