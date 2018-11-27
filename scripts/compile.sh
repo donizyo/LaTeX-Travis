@@ -1,7 +1,7 @@
 #!/bin/bash
 # vim: fileencoding=utf-8
 
-ENGINE=xetex
+ENGINE=xelatex
 OPTIONS=-file-line-error -interaction=nonstopmode -halt-on-error
 
 # @see https://linux.die.net/man/1/pdflatex
