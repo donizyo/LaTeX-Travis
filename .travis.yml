@@ -15,6 +15,5 @@ before_install:
   - sudo apt install -y --no-install-recommends texlive-full > /dev/null
 
 script:
-  - chmod u+x scripts/compile.sh && ./scripts/compile.sh
-  # publish files (such as *.pdf and *.log) onto deploy branch on Github
-  - chmod u+x scripts/deploy.sh && ./scripts/deploy.sh
+  - make compile
+  - make deploy
