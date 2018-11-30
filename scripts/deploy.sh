@@ -31,11 +31,11 @@ echo "Deploy Branch Name  : $DEPLOY_BRANCH_NAME"
 echo "Deploy Author       : $DEPLOY_AUTHOR"
 
 # Routines
+git config user.name "$DEPLOY_AUTHOR_NAME"
+git config user.email "$DEPLOY_AUTHOR_EMAIL"
 git checkout --orphan "$DEPLOY_BRANCH_NAME"
-{
-  git rm --cached --ignore-unmatch -rf -- .
-} > /dev/null
-find . \( -iname '*.pdf' -or -iname '*.log' \) -print0 | xargs -0 git add --
-git commit --author="$DEPLOY_AUTHOR" -m "Publish"
+git rm --cached --ignore-unmatch -rf -- . > /dev/null
+find . \( -iname '*.pdf' -or -iname '*.log' \) -print0 | xargs -0 git add -f --
+git commit -m "Publish"
 # Force push onto deploy branch
 git push "$GITHUB_FULL_URL" +"$DEPLOY_BRANCH_NAME"
